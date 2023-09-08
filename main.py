@@ -6,6 +6,7 @@ import logging
 from aiogram import Bot, Dispatcher
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.utils.chat_action import ChatActionMiddleware
 
 import config
 from handlers import router
@@ -15,6 +16,7 @@ async def main():
     bot = Bot(token=config.TG_BOT_TOKEN, parse_mode=ParseMode.HTML)
     dispatcher = Dispatcher(storage=MemoryStorage())
     dispatcher.include_router(router)
+    dispatcher.message.middleware(ChatActionMiddleware())
     await bot.delete_webhook(drop_pending_updates=True)
     await dispatcher.start_polling(bot, allowed_updates=dispatcher.resolve_used_update_types())
 
