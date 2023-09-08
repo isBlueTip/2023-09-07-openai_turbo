@@ -1,10 +1,6 @@
 greet = "Привет, {name}, я интерфейс для работы с OpenAI 3.5 Turbo"  # message text template
 
-
-menu = "Главное меню"  # button text template
-generate_text = "Сделать запрос для генерации текста"  # button text template
-
-gen_exit = "Для выхода в меню нажми кнопку ниже"
+voice_error = "На данный момент работа с войсами не реализована"
 generation_error = (
     "Ошибка генерации. Возможные причины: \n"
     "1. Перегружены сервера OpenAI;\n"
